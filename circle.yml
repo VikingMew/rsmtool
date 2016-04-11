@@ -15,7 +15,8 @@ dependencies:
 test:
   override:
     - ${HOME}/miniconda3/bin/nosetests -v
-        - files:
-            - tests/test_experiment.py
-            - tests/test_analysis.py tests/test_create_features.py tests/test_input.py tests/test_model.py tests/test_preprocess.py tests/test_report.py tests/test_experiment_compare.py
-            - tests/test_experiment_eval.py tests/test_experiment_predict.py
+        parallel: true
+        files:
+          - tests/test_experiment.py
+          - tests/test_analysis.py tests/test_create_features.py tests/test_input.py tests/test_model.py tests/test_preprocess.py tests/test_report.py tests/test_experiment_compare.py
+          - tests/test_experiment_eval.py tests/test_experiment_predict.py
