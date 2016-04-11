@@ -14,9 +14,5 @@ dependencies:
 # Run test
 test:
   override:
-    - ${HOME}/miniconda3/bin/nosetests -v:
+    - case $CIRCLE_NODE_INDEX in 0) ${HOME}/miniconda3/bin/nosetests -v tests/test_experiment.py ;; 1) ${HOME}/miniconda3/bin/nosetests -v tests/test_analysis.py tests/test_create_features.py tests/test_input.py tests/test_model.py tests/test_preprocess.py tests/test_report.py tests/test_experiment_compare.py ;; 2) ${HOME}/miniconda3/bin/nosetests -v tests/test_experiment_eval.py tests/test_experiment_predict.py ;; esac:
         parallel: true
-        files:
-          - tests/test_experiment.py
-          - tests/test_analysis.py tests/test_create_features.py tests/test_input.py tests/test_model.py tests/test_preprocess.py tests/test_report.py tests/test_experiment_compare.py
-          - tests/test_experiment_eval.py tests/test_experiment_predict.py
