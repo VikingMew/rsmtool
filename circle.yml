@@ -14,7 +14,7 @@ dependencies:
 # Run test
 test:
   override:
-    - ${HOME}/miniconda3/bin/nosetests -v
+    - ${HOME}/miniconda3/bin/nosetests -v:
         parallel: true
         files:
           - tests/test_experiment.py
